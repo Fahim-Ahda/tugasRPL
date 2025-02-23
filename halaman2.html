@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Tutorial Hero MM Di MLBB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animasi untuk elemen yang muncul satu per satu */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animasi untuk elemen yang hilang satu per satu */
+        @keyframes fadeOutUp {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Animasi untuk teks footer bergerak dari kiri ke kanan */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Class untuk animasi */
+        .animate-fadeInDown {
+            opacity: 0; /* Mulai dengan elemen tersembunyi */
+        }
+
+        .animate-fadeOutUp {
+            animation: fadeOutUp 0.5s ease-out forwards;
+        }
+
+        /* Class untuk animasi teks footer */
+        .animate-slideIn {
+            white-space: nowrap; /* Mencegah teks berbaris baru */
+            animation: slideIn 10s linear infinite; /* Animasi 10 detik, diulang terus */
+        }
+    </style>
+    <script>
+        function handleGetStarted() {
+            window.location.href = "prestasi.html";
+        }
+
+        function showMessage(prestasi, url) {
+            let confirmNavigation = confirm('Apakah Anda ingin berpindah ke halaman ' + prestasi + '?');
+            if (confirmNavigation) {
+                console.log("Berpindah ke:", url);
+                window.location.href = url;
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('bg-gray-800');
+            document.body.classList.toggle('text-white');
+            let elements = document.querySelectorAll('.bg-white, .bg-gray-200');
+            elements.forEach(el => {
+                el.classList.toggle('bg-gray-900');
+                el.classList.toggle('text-white');
+            });
+        }
+
+        // Fungsi untuk menampilkan elemen dengan jeda 1 detik
+        function showElements(elements) {
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animation = "fadeInDown 0.5s ease-out forwards";
+                    el.style.opacity = 1; // Memastikan elemen muncul setelah animasi
+                }, index * 1000); // Jeda 1 detik (1000 milidetik) per elemen
+            });
+        }
+
+        // Fungsi untuk menyembunyikan elemen dengan jeda 1 detik mulai dari bawah
+        function hideElements(elements, callback) {
+            elements.reverse().forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animation = "fadeOutUp 0.5s ease-out forwards";
+                    setTimeout(() => {
+                        el.style.opacity = 0; // Set opacity ke 0 setelah animasi selesai
+                    }, 500); // Sesuaikan dengan durasi animasi
+                }, index * 1000); // Jeda 1 detik (1000 milidetik) per elemen
+            });
+
+            // Panggil callback setelah semua animasi selesai
+            setTimeout(callback, elements.length * 1000);
+        }
+
+        function showMore() {
+            let moreAchievements = document.getElementById('moreAchievements');
+            let listItems = moreAchievements.querySelectorAll('li');
+
+            if (moreAchievements.classList.contains('hidden')) {
+                moreAchievements.classList.remove('hidden');
+                document.getElementById('showMoreBtn').innerText = 'Sembunyikan';
+                showElements(Array.from(listItems)); // Tampilkan elemen dengan jeda 1 detik
+            } else {
+                document.getElementById('showMoreBtn').innerText = 'Lihat Lebih Banyak';
+                hideElements(Array.from(listItems), () => {
+                    moreAchievements.classList.add('hidden');
+                }); // Sembunyikan elemen dengan jeda 1 detik
+            }
+        }
+
+        // Fungsi untuk menambahkan animasi saat halaman dimuat
+        document.addEventListener("DOMContentLoaded", function() {
+            let animatedElements = document.querySelectorAll('.animate-fadeInDown');
+            animatedElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animation = "fadeInDown 0.5s ease-out forwards";
+                    el.style.opacity = 1; // Memastikan elemen muncul setelah animasi
+                }, index * 1000); // Jeda 1 detik (1000 milidetik) per elemen
+            });
+
+            // Munculkan logo setelah header selesai muncul
+            let logo = document.querySelector('.logo-kanan-atas');
+            setTimeout(() => {
+                logo.style.animation = "fadeInDown 0.5s ease-out forwards";
+                logo.style.opacity = 1;
+            }, 1000); // Jeda 1 detik setelah header muncul
+
+            // Munculkan footer setelah tombol "Lihat Lebih Banyak" muncul
+            let footer = document.querySelector('footer');
+            setTimeout(() => {
+                footer.style.animation = "fadeInDown 0.5s ease-out forwards";
+                footer.style.opacity = 1;
+            }, 1000); // Jeda 1 detik setelah tombol muncul
+        });
+    </script>
+</head>
+<body class="bg-blue-100 transition-all duration-300">
+    <header class="bg-blue-800 text-white py-4 text-center text-2xl font-bold shadow-md animate-fadeInDown">
+        Video Tutorial Hero MM Di MLBB
+    </header>
+    
+    <!-- Logo di Kanan Atas -->
+    <div class="logo-kanan-atas absolute top-4 right-4 animate-fadeInDown" style="opacity: 0;">
+        <img src="logo-moonton-removebg-preview.png" alt="logo kanan atas" class="w-24 h-12 rounded-lg"> <!-- Logo persegi panjang -->
+    </div>
+
+    <div class="container mx-auto mt-6 p-4">
+        <div class="grid grid-cols-3 gap-4 items-start">
+            <!-- Video Section -->
+            <div class="col-span-2 bg-gradient-to-r from-blue-900 to-blue-700 rounded-lg overflow-hidden shadow-lg p-4 relative animate-fadeInDown">
+                <!-- Perbaikan: Menggunakan iframe untuk video YouTube -->
+                <iframe 
+                    class="w-full h-96 rounded-lg border-4 border-blue-300 shadow-xl"
+                    src="https://www.youtube.com/embed/QHNXLhm2iZ0?si=5jT9m2sWcaIm65UJ" 
+                    title="YouTube Video Player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+
+                <!-- Video Description (Initially Hidden) -->
+                <div id="videoDetails" class="mt-4 bg-blue-800 text-white p-4 rounded-lg shadow-lg transition-all duration-500 animate-fadeInDown">
+                    <h3 class="text-xl font-semibold">Deskripsi:</h3>
+                    <p class="text-sm mt-2 text-white-300">
+                        layla gameplay g pro player layla best build 2025 layla top 1 global build layla tersakit 2025.
+29 Kills + 3x MANIAC!! Layla The Real Monster Marksman!! - Build Top 1 Global Layla ~ MLBB
+_______________________________________________________
+
+Playlist :
+
+Assassin :
+    • PLAYLIST ASSASSIN  ​
+Fighter :
+    • PLAYLIST FIGHTER  ​
+Mage :
+    • PLAYLIST MAGE  ​
+Marksman :
+    • PLAYLIST MARKSMAN  ​
+Support :
+    • PLAYLIST SUPPORT  ​
+Tank :
+    • PLAYLIST TANK  ​
+
+_______________________________________________________ 
+
+Facebook Page :    / gameplayproplayerlive  ​
+
+Follow Me on TikTok : https://www.tiktok.com...​
+
+_______________________________________________________ 
+
+Intro and Outro Music :
+Track : NIVIRO - Demons [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:     • NIVIRO - Demons | Hard...  ​
+Free Download / Stream : http://ncs.io/NDemons​
+
+_______________________________________________________
+
+#gameplayproplayer​
+#LAYLA​
+#MLBB​</p>
+                </div>
+            </div>
+         
+            <div class="bg-white p-6 rounded-lg shadow-lg transition-all duration-300 animate-fadeInDown">
+                <h2 class="text-lg font-semibold mb-4">List Video Tutorial Hero MM:</h2>
+                <ul>
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Miya?', 'Miya.html')">Miya</li>
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Bruno?', 'Bruno.html')">Bruno</li>
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Clint?', 'Clint.html')">Clint</li>
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Yi Sun-shin?', ' Yi Sun-shin.html')">Yi Sun-shin</li>
+                    
+                <button id="showMoreBtn" class="mt-4 px-4 py-2 bg-blue-700 text-white rounded shadow hover:bg-blue-700 transition-all duration-300 animate-fadeInDown" onclick="showMore()">Lihat Lebih Banyak</button>
+                <ul id="moreAchievements" class="hidden mt-4">
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Moskov?', 'Moskov.html')">Moskov</li>
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Roger?', 'Roger.html')">Roger</li>
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Karrie?', 'Karrie.html')">Karrie</li>
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Irithel?', 'Irithel.html')">Irithel</li>
+                    <li class="mb-2 bg-gray-200 p-3 rounded hover:bg-gray-300 cursor-pointer transition-all duration-300 animate-fadeInDown" onclick="showMessageAndRedirect('Apakah Anda ingin berpindah ke halaman Video Tutorial Hero Lesley?', 'Lesley.html')">Lesley</li>
+                    
+                </ul>
+        </div>
+    </div>
+</div>
+<script>
+    function showMessageAndRedirect(message, url) {
+      let confirmNavigation = confirm(message); // Tampilkan pesan konfirmasi
+      if (confirmNavigation) {
+        window.location.href = url; // Arahkan ke halaman jika pengguna memilih "Oke"
+      }
+      // Jika pengguna memilih "Batal", tidak ada tindakan yang diambil
+    }
+    
+  </script>
+<footer class="mt-6 bg-blue-800 text-white py-3 text-center shadow-md animate-fadeInDown overflow-hidden" style="opacity: 0;">
+    <div class="animate-slideIn">
+        🌟 Selamat Datang di Website XR2! Lihat Profil dan Data Diri Kelas Kami! 🌟
+    </div>
+</footer>
+</body>
+</html>

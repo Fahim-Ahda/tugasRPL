@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Tutorial Hero MM Di MLBB - Irithel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll(".fade-in");
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add("opacity-100", "translate-y-0");
+                }, index * 1000);
+            });
+        });
+    </script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Animasi untuk teks footer bergerak dari kiri ke kanan */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Class untuk animasi teks footer */
+        .animate-slideIn {
+            white-space: nowrap; /* Mencegah teks berbaris baru */
+            animation: slideIn 10s linear infinite; /* Animasi 10 detik, diulang terus */
+        }
+    </style>
+</head>
+<body class="bg-gray-200 min-h-screen text-gray-900 flex flex-col justify-between">
+
+    <header class="bg-blue-800 py-4 shadow-md fade-in">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-3xl font-bold text-white">Video Tutorial Hero MM Di MLBB - Irithel</h1>
+        </div>
+    </header>
+    
+    <div class="absolute top-4 right-4 fade-in">
+        <img src="logo-moonton-removebg-preview.png" alt="Logo Kanan Atas" class="w-24 h-12 rounded-lg">
+    </div>
+
+    <div class="container mx-auto p-6 flex flex-col lg:flex-row items-center lg:items-start gap-8 flex-grow">
+        
+        <div class="flex-shrink-0 bg-blue-500 p-4 rounded-lg shadow-lg fade-in">
+            <img src="https://i0.wp.com/1.bp.blogspot.com/-v3-SUOWUqEE/XntyYddLcrI/AAAAAAAAB10/T-HYaJyRHWckipWSuzggjPC2pH2W-fKYACLcBGAsYHQ/s1600/Wallpaper-Irithel-Jungle-Heart-V1-Skin-Mobile-Legends-HD-for-Mobile-Hobigame.net.jpg?w=788&ssl=1" alt="Hero Irithel" class="w-96 h-auto object-cover rounded-lg">
+        </div>
+        
+        <div class="flex-1 bg-blue-500 p-6 rounded-lg shadow-lg w-full fade-in">
+            <div class="relative pb-[56.25%] mb-6">
+                <iframe 
+                    class="absolute top-0 left-0 w-full h-full rounded-lg"
+                    src="https://www.youtube.com/embed/oe8Vdnp_gn8?si=P30y6TemVdP8jM9T" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="bg-blue-100 p-4 rounded-lg border border-blue-200 fade-in">
+                <h3 class="text-xl font-semibold">Deskripsi:</h3>
+                <p class="text-sm mt-2 text-gray-800">
+                    BANDA ACEH
+                    Halo semuanya. Di video kali ini kita bakal bahas Tutorial Irithel Starlight Skin dan Gameplay Irithel Top Global 2025. Emblem Irithel Tersakit 2025, Item Irithel Tersakit 2025 dan Build Irithel Paling Sakit 2025. Cara Main Irithel Mobile Legends 2025, Spell Irithel, Combo Irithel Mobile Legends. Tonton sampai habis ya.
+                    
+                    📌Game Top Up : https://lapakhuda.com/ 📌Game Top Up : https://lapakhuda.com/ 📌Game Top Up : https://lapakhuda.com/ 📌Game Top Up : https://lapakhuda.com/ 📌Game Top Up : https://lapakhuda.com/ ✿ Jangan lupa untuk Subscribe!
+                    ✿ Lonceng notifikasi untuk tau kapan video gw di upload!
+                    
+                    💲💲💲 DONASI SAWER https://saweria.co/daniangga98 (Bantu donasi bisa dengan via OVO, Dana, GoPay)
+                    
+                    ✿✿✿ PERSELISIHAN SERVER
+                    PERSELISIHAN:   /Perselisihan  👑👑👑 MEDIA SOSIAL
+                    INSTAGRAM :   / danzzmind   TIKTOK : https://vt.tiktok.com/ZSe7Y8ECU/ ID DANZ CICIT HANZO : 335595850
+                    
+                    ▶▶▶ TAUTAN VIDEO OUTRO 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer dengan animasi teks bergerak dari kiri ke kanan -->
+    <footer class="mt-6 bg-blue-800 text-white py-3 text-center shadow-md fade-in overflow-hidden">
+        <div class="animate-slideIn">
+            🌟 Selamat Datang di Website Video Tutorial Hero MM Di MLBB 🌟
+        </div>
+    </footer>
+
+</body>
+</html>
